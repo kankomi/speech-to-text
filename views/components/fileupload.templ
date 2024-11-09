@@ -1,0 +1,18 @@
+package components
+
+templ FileUploadForm() {
+	<form
+		class="flex flex-col gap-4 justify-center"
+		hx-encoding="multipart/form-data"
+		hx-post="/api/upload"
+		_="on htmx:xhr:progress(loaded, total) set #progress.value to (loaded/total)*100 if #progress.value is 100 put 'Processing...' into #status end"
+	>
+		<p>Select audio file to upload</p>
+		<input type="file" name="file" accept=".mp3,.m4a"/>
+		<button class="px-4 py-2 border rounded bg-green-400 w-content">
+			Upload
+		</button>
+		<progress class="w-full" id="progress" value="0" max="100"></progress>
+		<p id="status" class="text-center font-bold"></p>
+	</form>
+}

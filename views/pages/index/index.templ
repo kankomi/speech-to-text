@@ -1,0 +1,11 @@
+
+package index
+
+import "stt/views/layouts"
+import "stt/views/components"
+
+templ Index() {
+	@layouts.BaseLayout("Home") {
+		@components.FileUploadForm()
+	}
+}

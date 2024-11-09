@@ -1,0 +1,15 @@
+package components
+
+templ ResultText(text string) {
+	<p class="border rounded p-4">{ text }</p>
+	<button
+		class="border rounded px-4 py-2 text-sm bg-slate-500 text-white w-fit"
+		_="on click
+		halt the event
+    writeText(my previousElementSibling's innerText) on navigator.clipboard
+    put 'copied!' into me
+    wait 1s
+    put 'copy' into me"
+	>copy</button>
+	<a href="/" class="hover:underline text-blue-500 text-center lg:text-left">go again</a>
+}
